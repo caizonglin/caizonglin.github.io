@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HumanaOpen — Open-Source Semi-Humanoid Robot</title>
+  <meta name="description" content="HumanaOpen is an open-source semi-humanoid robot featuring 7+1-DOF dual arms, mobile base, and electric lift. Perfect for robotics research and embodied AI.">
+  <meta property="og:title" content="HumanaOpen — Open-Source Semi-Humanoid Robot">
+  <meta property="og:description" content="Open-source semi-humanoid robot with 7+1-DOF dual arms, mobile base, and electric lift.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://caizonglin.github.io/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%2300B4D8'/><text x='16' y='21' font-size='16' fill='white' text-anchor='middle' font-family='sans-serif'>🤖</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">HumanaOpen</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#features" data-en="Features" data-zh="功能特性">Features</a></li>
+        <li><a href="#specs" data-en="Specs" data-zh="技术参数">Specs</a></li>
+        <li><a href="#download" data-en="Download" data-zh="下载">Download</a></li>
+        <li><a href="#contact" data-en="Contact" data-zh="联系我们">Contact</a></li>
+        <li><button class="nav__lang" id="langToggle" aria-label="Switch language">中/EN</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <h1 class="hero__title" data-en="HumanaOpen" data-zh="HumanaOpen">HumanaOpen</h1>
+        <p class="hero__tagline" data-en="Open-source semi-humanoid robot — 7+1-DOF humanoid arms, dual-mode mobile base, electric lift, vision navigation." data-zh="开源半人形机器人 — 7+1自由度仿人形双臂、双模式移动底盘、电动升降、视觉导航。">Open-source semi-humanoid robot — 7+1-DOF humanoid arms, dual-mode mobile base, electric lift, vision navigation.</p>
+        <div class="hero__actions">
+          <a href="https://github.com/caizonglin/HumanaOpen" class="btn btn--outline" data-en="View on GitHub" data-zh="查看 GitHub" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+        <div class="hero__badges">
+          <span class="hero__badge" data-en="Low-cost &amp; Fully Open Source" data-zh="低成本全开源">Low-cost &amp; Fully Open Source</span>
+          <span class="hero__badge" data-en="7+1-DOF Humanoid Arms" data-zh="7+1自由度仿人形双臂">7+1-DOF Humanoid Arms</span>
+          <span class="hero__badge" data-en="2-Wheel Diff / 4-Wheel Drive" data-zh="两轮差速 / 四轮全驱">2-Wheel Diff / 4-Wheel Drive</span>
+        </div>
+      </div>
+      <div class="hero__image">
+        <img src="assets/HumanaOpen_EN.png" data-en-src="assets/HumanaOpen_EN.png" data-zh-src="assets/HumanaOpen.png" alt="HumanaOpen" class="hero__img" loading="eager">
+      </div>
+    </div>
+  </header>
+
+  <!-- FEATURES -->
+  <section class="section features" id="features">
+    <div class="container">
+      <h2 class="section__title" data-en="Features" data-zh="功能特性">Features</h2>
+      <p class="section__subtitle" data-en="Everything you need for embodied AI research and development." data-zh="满足具身智能研发的一切需求。">Everything you need for embodied AI research and development.</p>
+      <div class="features__grid">
+
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h3 class="feature-card__title" data-en="Low-Cost Full Open Source" data-zh="低成本全开源">Low-Cost Full Open Source</h3>
+          <p class="feature-card__desc" data-en="Complete CAD files, firmware, and code open-sourced for free. Estimated BOM of only ≈ ¥5,718 RMB — add an optional Raspberry Pi or Jetson." data-zh="全套CAD文件、固件与代码完全免费开源。预估BOM仅为 ≈ 5,718 人民币 — 可选配树莓派或Jetson。">Complete CAD files, firmware, and code open-sourced for free. Estimated BOM of only ≈ ¥5,718 RMB — add an optional Raspberry Pi or Jetson.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M6 6l12 12M18 6L6 18"/></svg>
+          </div>
+          <h3 class="feature-card__title" data-en="7+1-DOF Humanoid Arms + Grippers" data-zh="7+1自由度仿人形双臂 + 夹爪">7+1-DOF Humanoid Arms + Grippers</h3>
+          <p class="feature-card__desc" data-en="Humanoid-form arms with 7 degrees of freedom plus integrated grippers, driven by digital serial-bus servos for dexterous manipulation." data-zh="仿人形双臂，每条手臂7个自由度外加集成夹爪，采用数字串行总线舵机，实现灵活操控。">Humanoid-form arms with 7 degrees of freedom plus integrated grippers, driven by digital serial-bus servos for dexterous manipulation.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3 class="feature-card__title" data-en="Dual-Mode Mobile Base" data-zh="双模式移动底盘">Dual-Mode Mobile Base</h3>
+          <p class="feature-card__desc" data-en="Switchable two-wheel differential or four-wheel all-wheel-drive locomotion using digital wheel servos." data-zh="可在两轮差速与四轮全驱之间切换的移动底盘，采用数字轮式舵机。">Switchable two-wheel differential or four-wheel all-wheel-drive locomotion using digital wheel servos.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8l4 4"/><rect x="4" y="18" width="16" height="4" rx="1"/><path d="M8 14l4-4 4 4"/></svg>
+          </div>
+          <h3 class="feature-card__title" data-en="Leadscrew Lift (Self-Locking)" data-zh="丝杠升降（自锁）">Leadscrew Lift (Self-Locking)</h3>
+          <p class="feature-card__desc" data-en="Leadscrew-based lift with a wide travel range. Self-locking design ensures zero-persistence — no re-homing needed." data-zh="丝杠升降机构，宽行程范围。自锁设计确保零滞回 — 无需回零。">Leadscrew-based lift with a wide travel range. Self-locking design ensures zero-persistence — no re-homing needed.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M3 21v-2a7 7 0 0114 0v2"/></svg>
+          </div>
+          <h3 class="feature-card__title" data-en="2-DOF Head Pan/Tilt" data-zh="2自由度头部云台">2-DOF Head Pan/Tilt</h3>
+          <p class="feature-card__desc" data-en="Head unit with 2 degrees of freedom — pan and tilt — for dynamic camera positioning and environmental awareness." data-zh="头部云台支持2个自由度：水平转动与俯仰倾斜，实现动态相机定位与环境感知。">Head unit with 2 degrees of freedom — pan and tilt — for dynamic camera positioning and environmental awareness.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1h22v22H1z"/><path d="M8 1v22M1 8h22"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 class="feature-card__title" data-en="Vision Pipeline (LeRobot ACT / SmolVLA)" data-zh="视觉管线（LeRobot ACT / SmolVLA）">Vision Pipeline (LeRobot ACT / SmolVLA)</h3>
+          <p class="feature-card__desc" data-en="Full vision pipeline supporting LeRobot ACT and SmolVLA policies. 3–4× 720p cameras for rich spatial perception." data-zh="完整视觉管线，支持LeRobot ACT和SmolVLA策略。3-4路720p相机提供丰富空间感知。">Full vision pipeline supporting LeRobot ACT and SmolVLA policies. 3–4× 720p cameras for rich spatial perception.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h2M7 11h4"/></svg>
+          </div>
+          <h3 class="feature-card__title" data-en="Dual-Machine Teleop & Training" data-zh="双机遥操与训练">Dual-Machine Teleop & Training</h3>
+          <p class="feature-card__desc" data-en="ZMQ-based architecture for teleoperation, data collection, training, and real-time inference — works in both single-machine and dual-machine modes. Display via Rerun / Foxglove." data-zh="基于ZMQ的架构，支持遥操、数据采集、训练与实时推理 — 单机与双机模式均可运行。通过Rerun / Foxglove可视化显示。">ZMQ-based architecture for teleoperation, data collection, training, and real-time inference — works in both single-machine and dual-machine modes. Display via Rerun / Foxglove.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8l-3 5-5 3 3-5z"/><circle cx="12" cy="12" r="1"/></svg>
+          </div>
+          <h3 class="feature-card__title" data-en="Vision-Based Navigation" data-zh="视觉导航">Vision-Based Navigation</h3>
+          <p class="feature-card__desc" data-en="Camera-based autonomous navigation for obstacle avoidance and goal reaching without extra sensors." data-zh="基于相机的自主导航，无需额外传感器即可实现避障与目标到达。">Camera-based autonomous navigation for obstacle avoidance and goal reaching without extra sensors.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS -->
+  <section class="section specs" id="specs">
+    <div class="container">
+      <h2 class="section__title" data-en="Technical Specifications" data-zh="技术参数">Technical Specifications</h2>
+      <p class="section__subtitle" data-en="Detailed hardware and software specifications." data-zh="详细硬件与软件参数。">Detailed hardware and software specifications.</p>
+      <div class="specs__table-wrap">
+        <table class="specs__table">
+          <thead>
+            <tr>
+              <th data-en="Component" data-zh="组件">Component</th>
+              <th data-en="Specification" data-zh="规格">Specification</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-en="Arms" data-zh="手臂">Arms</td>
+              <td data-en="2× 7-DOF + gripper (serial-bus servos)" data-zh="2× 7自由度 + 夹爪（串行总线舵机）">2× 7-DOF + gripper (serial-bus servos)</td>
+            </tr>
+            <tr>
+              <td data-en="Leader Arms" data-zh="主手臂">Leader Arms</td>
+              <td data-en="Digital serial-bus servos" data-zh="数字串行总线舵机">Digital serial-bus servos</td>
+            </tr>
+            <tr>
+              <td data-en="Head" data-zh="头部">Head</td>
+              <td data-en="2-DOF (Pan / Tilt)" data-zh="2自由度（水平 / 垂直）">2-DOF (Pan / Tilt)</td>
+            </tr>
+            <tr>
+              <td data-en="Lift" data-zh="升降">Lift</td>
+              <td data-en="Leadscrew, wide travel range, self-locking, zero-persistence" data-zh="丝杠，宽行程，自锁，零滞回">Leadscrew, wide travel range, self-locking, zero-persistence</td>
+            </tr>
+            <tr>
+              <td data-en="Base" data-zh="底盘">Base</td>
+              <td data-en="Two-wheel differential / four-wheel drive (switchable)" data-zh="两轮差速 / 四轮全驱（可切换）">Two-wheel differential / four-wheel drive (switchable)</td>
+            </tr>
+            <tr>
+              <td data-en="Cameras" data-zh="相机">Cameras</td>
+              <td data-en="3–4× 720p" data-zh="3–4路 720p">3–4× 720p</td>
+            </tr>
+            <tr>
+              <td data-en="Controller (optional)" data-zh="控制器（可选）">Controller (optional)</td>
+              <td data-en="Raspberry Pi 5 (4 GB) or Jetson Orin Nano Super (8 GB)" data-zh="树莓派5（4GB）或 Jetson Orin Nano Super（8GB）">Raspberry Pi 5 (4 GB) or Jetson Orin Nano Super (8 GB)</td>
+            </tr>
+            <tr>
+              <td data-en="Software" data-zh="软件">Software</td>
+              <td data-en="LeRobot + PyTorch" data-zh="LeRobot + PyTorch">LeRobot + PyTorch</td>
+            </tr>
+            <tr>
+              <td data-en="Visualization" data-zh="可视化">Visualization</td>
+              <td data-en="Rerun / Foxglove" data-zh="Rerun / Foxglove">Rerun / Foxglove</td>
+            </tr>
+            <tr>
+              <td data-en="Estimated BOM" data-zh="预估BOM">Estimated BOM</td>
+              <td data-en="≈ 5,718 RMB" data-zh="≈ 5,718 人民币">≈ 5,718 RMB</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="section pipeline" id="pipeline">
+    <div class="container">
+      <h2 class="section__title" data-en="Workflow Pipeline" data-zh="工作流程">Workflow Pipeline</h2>
+      <p class="section__subtitle" data-en="From teleoperation to autonomous inference in four steps." data-zh="从遥操作到自主推理，四步完成。">From teleoperation to autonomous inference in four steps.</p>
+      <div class="pipeline__flow">
+        <div class="pipeline__step reveal">
+          <div class="pipeline__step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 00-4 0v5M14 10V4a2 2 0 00-4 0v6M10 9.5V6a2 2 0 00-4 0v8l-1.46-1.46a2 2 0 00-2.83 2.83L5 20.59a4 4 0 004 3.41h5a4 4 0 004-4v-5a2 2 0 00-4 0"/></svg>
+          </div>
+          <h3 data-en="Teleop" data-zh="遥操作">Teleop</h3>
+          <p data-en="Leader-arm control via ZMQ" data-zh="ZMQ主臂控制">Leader-arm control via ZMQ</p>
+        </div>
+        <div class="pipeline__arrow reveal">→</div>
+        <div class="pipeline__step reveal">
+          <div class="pipeline__step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </div>
+          <h3 data-en="Collect" data-zh="采集">Collect</h3>
+          <p data-en="Record demonstration data" data-zh="录制演示数据">Record demonstration data</p>
+        </div>
+        <div class="pipeline__arrow reveal">→</div>
+        <div class="pipeline__step reveal">
+          <div class="pipeline__step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </div>
+          <h3 data-en="Train" data-zh="训练">Train</h3>
+          <p data-en="ACT / SmolVLA policy" data-zh="ACT / SmolVLA 策略">ACT / SmolVLA policy</p>
+        </div>
+        <div class="pipeline__arrow reveal">→</div>
+        <div class="pipeline__step reveal">
+          <div class="pipeline__step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 data-en="Infer" data-zh="推理">Infer</h3>
+          <p data-en="Autonomous visual control" data-zh="自主视觉控制">Autonomous visual control</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="section roadmap" id="roadmap">
+    <div class="container">
+      <h2 class="section__title" data-en="Roadmap" data-zh="路线图">Roadmap</h2>
+      <p class="section__subtitle" data-en="Building the complete open-source ecosystem." data-zh="构建完整的开源生态系统。">Building the complete open-source ecosystem.</p>
+      <div class="roadmap__grid">
+        <ul class="roadmap__list reveal">
+          <li><span class="roadmap__status roadmap__status--done">✅</span> <span data-en="ACT, SmolVLA" data-zh="ACT, SmolVLA">ACT, SmolVLA</span></li>
+          <li><span class="roadmap__status roadmap__status--done">✅</span> <span data-en="Bill of Materials (BOM)" data-zh="物料清单（BOM）">Bill of Materials (BOM)</span></li>
+          <li><span class="roadmap__status roadmap__status--done">✅</span> <span data-en="Assembly Guide" data-zh="组装指南">Assembly Guide</span></li>
+          <li><span class="roadmap__status roadmap__status--done">✅</span> <span data-en="Vision-Based Navigation" data-zh="视觉导航">Vision-Based Navigation</span></li>
+          <li><span class="roadmap__status roadmap__status--done">✅</span> <span data-en="CAD Files" data-zh="CAD 文件">CAD Files</span></li>
+        </ul>
+        <ul class="roadmap__list reveal">
+          <li><span class="roadmap__status roadmap__status--todo">☐</span> <span data-en="Lite Version" data-zh="Lite 版本">Lite Version</span></li>
+          <li><span class="roadmap__status roadmap__status--todo">☐</span> <span data-en="URDF" data-zh="URDF">URDF</span></li>
+          <li><span class="roadmap__status roadmap__status--todo">☐</span> <span data-en="Agent" data-zh="Agent">Agent</span></li>
+          <li><span class="roadmap__status roadmap__status--todo">☐</span> <span data-en="Vision-Based Grasping" data-zh="视觉抓取">Vision-Based Grasping</span></li>
+          <li><span class="roadmap__status roadmap__status--todo">☐</span> <span data-en="Embodied World Models" data-zh="具身世界模型">Embodied World Models</span></li>
+        </ul>
+      </div>
+      <p class="roadmap__note" data-en="These items are actively being developed. Stay tuned!" data-zh="以上项目正在积极开发中，敬请期待！">These items are actively being developed. Stay tuned!</p>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section class="section download" id="download">
+    <div class="container">
+      <h2 class="section__title" data-en="Open Source &amp; Download" data-zh="开源与下载">Open Source &amp; Download</h2>
+      <p class="section__subtitle" data-en="Everything is open. Clone, build, and contribute." data-zh="一切开源。克隆、构建、贡献。">Everything is open. Clone, build, and contribute.</p>
+      <div class="download__grid">
+        <a href="https://github.com/caizonglin/HumanaOpen" class="download__card reveal" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          <h3 data-en="GitHub Repository" data-zh="GitHub 仓库">GitHub Repository</h3>
+          <p data-en="Source code, issues, and contributions" data-zh="源代码、Issues与贡献">Source code, issues, and contributions</p>
+        </a>
+        <a href="https://github.com/caizonglin/HumanaOpen/tree/main/docs" class="download__card reveal" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          <h3 data-en="Documentation" data-zh="文档">Documentation</h3>
+          <p data-en="Assembly, wiring, and usage guides" data-zh="装配、接线与使用指南">Assembly, wiring, and usage guides</p>
+        </a>
+        <a href="https://github.com/caizonglin/HumanaOpen/blob/main/README.md" class="download__card reveal" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <h3>README</h3>
+          <p data-en="English / 中文 / Français / 한국어" data-zh="英文 / 中文 / 法文 / 韩文">English / 中文 / Français / 한국어</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section__title" data-en="Contact &amp; Cooperation" data-zh="交流与合作">Contact &amp; Cooperation</h2>
+      <p class="section__subtitle" data-en="Reach out to the team." data-zh="联系项目团队。">Reach out to the team.</p>
+      <div class="contact__grid">
+        <div class="contact__card reveal">
+          <h3 data-en="Product Communication" data-zh="产品咨询">Product Communication</h3>
+          <p data-en="Scan the QR code to reach our product team" data-zh="扫描二维码联系产品团队">Scan the QR code to reach our product team</p>
+          <div class="contact__qr">
+            <img src="assets/wechat_qr.png" alt="Product communication QR code" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__license" data-en="Licensed under Apache 2.0. © HumanaOpen" data-zh="Apache 2.0 许可证。© HumanaOpen">Licensed under Apache 2.0. © HumanaOpen</p>
+        <div class="footer__links">
+          <a href="https://github.com/caizonglin/HumanaOpen" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/caizonglin/HumanaOpen/blob/main/README.md" target="_blank" rel="noopener">README</a>
+          <a href="https://github.com/caizonglin/HumanaOpen/tree/main/docs" target="_blank" rel="noopener" data-en="Docs" data-zh="文档">Docs</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
