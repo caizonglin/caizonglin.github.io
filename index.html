@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HumanaOpen — 开源半人形机器人</title>
+<meta name="description" content="开源半人形机器人:2×7+1自由度仿人臂+夹爪、双模式移动底盘、电动丝杠升降、视觉导航。低门槛复刻(整机估算 BOM ≈ ¥5,718)。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23000'/%3E%3Ctext x='32' y='42' font-size='30' text-anchor='middle' fill='%23fff' font-family='sans-serif' font-weight='bold'%3EH%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0b0b0f; --paper:#f6f6f4; --accent:#e63946; --muted:#5b5b66;
+  --card:#ffffff; --line:#e4e4e0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);background:var(--paper);line-height:1.6}
+a{color:var(--ink);text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* ===== 顶栏 ===== */
+header{position:sticky;top:0;z-index:50;background:rgba(246,246,244,.92);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:24px;height:60px}
+.brand{font-weight:800;font-size:17px;letter-spacing:.2px;display:flex;align-items:center;gap:8px}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.nav-links{display:flex;gap:20px;margin-left:auto}
+.nav-links a{font-size:14px;color:var(--muted)}
+.nav-links a:hover{color:var(--ink)}
+.lang{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--muted)}
+
+/* ===== Hero ===== */
+.hero{padding:64px 0 40px;text-align:center}
+.hero h1{font-size:44px;font-weight:900;letter-spacing:-.5px}
+.hero .sub{font-size:19px;color:var(--muted);margin:14px auto 8px;max-width:760px}
+.hero .tag{display:inline-block;margin-top:14px;font-size:13px;color:var(--accent);
+  border:1px solid var(--accent);padding:6px 14px;border-radius:999px}
+.hero-img{margin:32px auto 0;max-width:760px}
+.hero-img svg, .hero-img img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px}
+
+/* ===== 区块 ===== */
+section{padding:56px 0}
+section h2{font-size:28px;font-weight:800;margin-bottom:28px;letter-spacing:-.2px}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h3{font-size:16px;font-weight:700;margin-bottom:8px}
+.card p{font-size:14px;color:var(--muted)}
+
+/* ===== 表格 ===== */
+table{width:100%;border-collapse:collapse;background:var(--card);
+  border:1px solid var(--line);border-radius:14px;overflow:hidden}
+th,td{padding:12px 16px;text-align:left;font-size:14px;border-bottom:1px solid var(--line)}
+th{background:#efefeb;font-weight:700}
+tr:last-child td{border-bottom:none}
+td:nth-child(2){text-align:right;color:var(--muted)}
+tr:hover td{background:#fafaf7}
+
+/* ===== 流水线 ===== */
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center}
+.step .no{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:1px}
+.step .t{font-weight:700;margin-top:6px;font-size:14px}
+.step .d{font-size:12px;color:var(--muted);margin-top:4px}
+
+/* ===== 路线图 ===== */
+.road{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px}
+.r-item{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px}
+.r-item .m{color:#0a7d33;font-weight:700}
+.r-item .u{color:var(--muted)}
+
+/* ===== 链接块 ===== */
+.link-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.link{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;transition:transform .15s,box-shadow .15s}
+.link:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.06)}
+.link h3{font-size:16px;font-weight:700}
+.link p{font-size:13px;color:var(--muted);margin-top:6px}
+
+/* ===== 联系 ===== */
+.contact-row{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.contact-text{font-size:14px;color:var(--muted);max-width:420px}
+.qr{width:150px;height:150px;flex:0 0 auto}
+
+/* ===== 页脚 ===== */
+footer{border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--muted)}
+footer .container{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+footer a{color:var(--muted);margin-left:16px}
+footer a:hover{color:var(--ink)}
+
+@media (max-width:720px){
+  .hero h1{font-size:32px}
+  .pipeline{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand"><span class="dot"></span>HumanaOpen</div>
+    <nav class="nav-links">
+      <a href="#features">功能亮点</a>
+      <a href="#specs">规格参数</a>
+      <a href="#workflow">工作流程</a>
+      <a href="#roadmap">路线图</a>
+      <a href="#source">开源下载</a>
+      <a href="#contact">联系我们</a>
+    </nav>
+    <span class="lang">中 / EN</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>HumanaOpen</h1>
+    <p class="sub">开源半人形机器人 —— 2×7+1 自由度仿人臂 + 夹爪、双模式移动底盘、电动丝杠升降、视觉导航。</p>
+    <span class="tag">低门槛复刻 · 2 轮差速 / 4 轮驱动 · 整机估算 BOM ≈ ¥5,718</span>
+    <div class="hero-img">
+      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HumanaOpen 半人形机器人示意">
+        <rect width="760" height="320" fill="#12121a"/>
+        <circle cx="380" cy="96" r="34" fill="#e63946"/>
+        <rect x="360" y="128" width="40" height="52" rx="10" fill="#2b2b38"/>
+        <path d="M360 160 C320 168 296 190 288 224" stroke="#2b2b38" stroke-width="13" fill="none" stroke-linecap="round"/>
+        <path d="M400 160 C440 168 464 190 472 224" stroke="#2b2b38" stroke-width="13" fill="none" stroke-linecap="round"/>
+        <rect x="380" y="180" width="14" height="72" fill="#1d1d28"/>
+        <rect x="272" y="252" width="216" height="16" rx="8" fill="#1d1d28"/>
+        <circle cx="214" cy="260" r="26" fill="#0f0f16" stroke="#3a3a4a" stroke-width="4"/>
+        <circle cx="546" cy="260" r="26" fill="#0f0f16" stroke="#3a3a4a" stroke-width="4"/>
+        <text x="380" y="308" text-anchor="middle" font-size="18" fill="#8a8a99" font-family="sans-serif">HumanaOpen · Open-Source Semi-Humanoid Robot</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <h2>功能亮点</h2>
+    <div class="features-grid">
+      <div class="card"><h3>低门槛 · 全开源</h3><p>完整 CAD、固件与代码全部开源免费。整机估算物料成本仅约 ¥5,718 —— 可选配 Raspberry Pi 或 Jetson。</p></div>
+      <div class="card"><h3>7+1 自由度仿人臂 + 夹爪</h3><p>仿真人手形态:7 自由度手臂 + 集成夹爪,数字串行舵机驱动,灵活操控。</p></div>
+      <div class="card"><h3>双模式移动底盘</h3><p>两轮差速 / 四轮全驱可切换,数字轮式舵机驱动。</p></div>
+      <div class="card"><h3>丝杠升降(自锁)</h3><p>丝杠式升降,行程大,自锁设计 —— 零自锁维持,无需重新归零。</p></div>
+      <div class="card"><h3>2 自由度头部云台</h3><p>头部 2 自由度(俯仰 / 偏航),动态相机定位与环境感知。</p></div>
+      <div class="card"><h3>视觉管线(LeRobot ACT / SmolVLA)</h3><p>完整视觉管线,支持 LeRobot ACT 与 SmolVLA 策略;3–4× 720p 相机,丰富空间感知。</p></div>
+      <div class="card"><h3>双机遥操作 & 训练</h3><p>基于 ZMQ 的遥操作、数据采集、训练与实时推理架构,支持单机 / 双机模式,通过 Rerun / Foxglove 可视化。</p></div>
+      <div class="card"><h3>视觉导航</h3><p>纯相机自主导航,避障与到达目标,无需额外传感器。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="specs">
+  <div class="container">
+    <h2>技术规格</h2>
+    <table>
+      <tr><th>部件</th><th>规格</th></tr>
+      <tr><td>手臂</td><td>2× 7-DOF + 夹爪(串行舵机)</td></tr>
+      <tr><td>主从臂</td><td>数字串行舵机</td></tr>
+      <tr><td>头部</td><td>2-DOF(俯仰 / 偏航)</td></tr>
+      <tr><td>升降</td><td>丝杠,宽行程,自锁,零自锁维持</td></tr>
+      <tr><td>底盘</td><td>两轮差速 / 四轮驱动(可切换)</td></tr>
+      <tr><td>相机</td><td>3–4× 720p</td></tr>
+      <tr><td>控制器(可选)</td><td>Raspberry Pi 5(4GB)或 Jetson Orin Nano Super(8GB)</td></tr>
+      <tr><td>软件</td><td>LeRobot + PyTorch</td></tr>
+      <tr><td>可视化</td><td>Rerun / Foxglove</td></tr>
+      <tr><td>估算 BOM</td><td>≈ ¥5,718</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="workflow">
+  <div class="container">
+    <h2>工作流程</h2>
+    <p style="color:var(--muted);margin-bottom:20px;font-size:14px">从遥操作到自主推理,四步闭环。</p>
+    <div class="pipeline">
+      <div class="step"><div class="no">01 · 遥操作</div><div class="t">Teleop</div><div class="d">主从臂 ZMQ 控制</div></div>
+      <div class="step"><div class="no">02 · 采集</div><div class="t">Collect</div><div class="d">录演示数据</div></div>
+      <div class="step"><div class="no">03 · 训练</div><div class="t">Train</div><div class="d">ACT / SmolVLA 策略</div></div>
+      <div class="step"><div class="no">04 · 推理</div><div class="t">Infer</div><div class="d">自主视觉控制</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="container">
+    <h2>路线图</h2>
+    <div class="road">
+      <div class="r-item"><span class="m">✔</span> ACT、SmolVLA</div>
+      <div class="r-item"><span class="m">✔</span> 物料清单(BOM)</div>
+      <div class="r-item"><span class="m">✔</span> 装配指南</div>
+      <div class="r-item"><span class="m">✔</span> 视觉导航</div>
+      <div class="r-item"><span class="m">✔</span> CAD 文件</div>
+      <div class="r-item"><span class="u">☐</span> Lite 版</div>
+      <div class="r-item"><span class="u">☐</span> URDF</div>
+      <div class="r-item"><span class="u">☐</span> Agent</div>
+      <div class="r-item"><span class="u">☐</span> 视觉抓取</div>
+      <div class="r-item"><span class="u">☐</span> 具身世界模型</div>
+    </div>
+    <p style="color:var(--muted);font-size:13px;margin-top:14px">以上项目正在积极开发中,敬请期待!</p>
+  </div>
+</section>
+
+<section id="source">
+  <div class="container">
+    <h2>开源 & 下载</h2>
+    <p style="color:var(--muted);font-size:14px;margin-bottom:22px">一切开源。克隆、构建、参与贡献。</p>
+    <div class="link-grid">
+      <a class="link" href="https://github.com/caizonglin/HumanaOpen">
+        <h3>GitHub 仓库</h3><p>源代码、Issue 与贡献</p>
+      </a>
+      <a class="link" href="https://github.com/caizonglin/HumanaOpen/tree/main/docs">
+        <h3>文档</h3><p>装配、接线与使用指南</p>
+      </a>
+      <a class="link" href="https://github.com/caizonglin/HumanaOpen/blob/main/README.md">
+        <h3>README</h3><p>English / 中文 / Français / 한국어</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>联系我们</h2>
+    <div class="contact-row">
+      <div class="contact-text">
+        <p>欢迎交流与合作。关于开箱、改装、策略训练、商业合作等任何问题,欢迎通过 GitHub Issue 或以下方式联系我们。</p>
+      </div>
+      <svg class="qr" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="联系二维码占位">
+        <rect width="150" height="150" fill="#fff" stroke="#000" stroke-width="3"/>
+        <g fill="#000">
+          <rect x="12" y="12" width="30" height="30"/><rect x="26" y="26" width="2" height="2"/><rect x="30" y="26" width="2" height="2"/><rect x="26" y="30" width="2" height="2"/><rect x="30" y="30" width="2" height="2"/>
+          <rect x="108" y="12" width="30" height="30"/><rect x="122" y="26" width="2" height="2"/><rect x="126" y="26" width="2" height="2"/><rect x="122" y="30" width="2" height="2"/><rect x="126" y="30" width="2" height="2"/>
+          <rect x="12" y="108" width="30" height="30"/><rect x="26" y="122" width="2" height="2"/><rect x="30" y="122" width="2" height="2"/><rect x="26" y="126" width="2" height="2"/><rect x="30" y="126" width="2" height="2"/>
+          <rect x="72" y="72" width="12" height="12"/>  <rect x="72" y="108" width="12" height="12"/>
+          <rect x="108" y="72" width="12" height="12"/>  <rect x="126" y="108" width="12" height="12"/>
+          <rect x="20" y="52" width="8" height="36"/><rect x="120" y="52" width="8" height="36"/><rect x="52" y="20" width="36" height="8"/><rect x="52" y="120" width="36" height="8"/>
+          <rect x="96" y="90" width="8" height="8"/><rect x="60" y="52" width="8" height="8"/><rect x="60" y="96" width="8" height="8"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span>Licensed under Apache 2.0. © HumanaOpen</span>
+    <span>
+      <a href="https://github.com/caizonglin">GitHub</a>
+      <a href="https://github.com/caizonglin/HumanaOpen">README</a>
+      <a href="https://github.com/caizonglin/HumanaOpen/tree/main/docs">Docs</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
